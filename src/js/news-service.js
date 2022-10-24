@@ -8,13 +8,13 @@ export default class NewsApiService {
   }
 
   fetchArticles() {
-    // console.log(this);
     const options = {
       headers: {
         Authorization: API_KEY,
       },
     };
-    const url = `${URL}/everything?q=${this.searchQuery}&pageSize=5&page=${this.page}`;
+    const url = `${URL}/everything?q=${this.searchQuery}&searchIn=title,content&pageSize=5&page=${this.page}`;
+    // const url = `${URL}/top-headlines?country=ua&${this.searchQuery}&pageSize=5&page=${this.page}`;
 
     return fetch(url, options)
       .then(r => r.json())
