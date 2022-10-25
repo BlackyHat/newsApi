@@ -41,6 +41,7 @@ function appendArticlesMarkup(articles) {
     .join('');
   getEl('.articles').insertAdjacentHTML('beforeEnd', markup);
 }
+
 function clearArticlesContainer() {
   getEl('.articles').innerHTML = '';
 }
