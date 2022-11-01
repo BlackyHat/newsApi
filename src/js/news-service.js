@@ -14,14 +14,17 @@ export default class NewsApiService {
       pageSize: 15,
       page: this.page,
       sortBy: 'relevancy',
+      apiKey: API_KEY,
       // from: this.date,
     });
     console.log(this.date);
+
     const options = {
       headers: {
-        Authorization: API_KEY,
+        authorization: API_KEY,
       },
     };
+
     const url = `${URL}${searchParams}`;
     // const url = `${URL}q=${this.searchQuery}&searchIn=title,content&pageSize=5&page=${this.page}`;
     // const url = `${URL}/top-headlines?country=ua&${this.searchQuery}&pageSize=5&page=${this.page}`;
