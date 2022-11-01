@@ -10,26 +10,29 @@ export default class NewsApiService {
 
   fetchArticles() {
     const searchParams = new URLSearchParams({
+      apiKey: API_KEY,
       q: this.searchQuery,
       pageSize: 15,
       page: this.page,
       sortBy: 'relevancy',
-      apiKey: API_KEY,
       // from: this.date,
     });
     console.log(this.date);
 
-    const options = {
-      headers: {
-        authorization: API_KEY,
-      },
-    };
+    // const options = {
+    //   headers: {
+    //     'x-api-key': API_KEY,
+    //   },
+    // };
 
     const url = `${URL}${searchParams}`;
     // const url = `${URL}q=${this.searchQuery}&searchIn=title,content&pageSize=5&page=${this.page}`;
     // const url = `${URL}/top-headlines?country=ua&${this.searchQuery}&pageSize=5&page=${this.page}`;
 
-    return fetch(url, options)
+    return fetch(
+      url,
+      // , options
+    )
       .then(r => {
         if (!r.ok) {
           throw new Error('status not ok');
